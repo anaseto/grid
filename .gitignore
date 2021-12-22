@@ -1,0 +1,7 @@
+*.swp
+*~
+*.wasm
+*.prof
+*.tar.gz
+*.out
+*.test
