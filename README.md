@@ -13,10 +13,36 @@ generic methods for grid iteration and manipulation.
 Here's a simple example of usage:
 
 ``` go
-// create a 5x5 grid of int type (default 0)
-gd := grid.NewGrid[int](5, 5)
-// Fill all the cells with 2
-gd.Fill(2)
+// Create a new 10x10 grid of runes.
+gd := grid.NewGrid[rune](10, 10)
+// Fill the whole grid with dots.
+gd.Fill('.')
+// Define a range (3,3)-(7,7).
+rg := grid.NewRange(3, 3, 7, 7)
+// Define a slice of the grid using the range.
+rectangle := gd.Slice(rg)
+// Fill the rectangle with #.
+rectangle.Fill('#')
+// Print the grid.
+it := gd.Iterator()
+max := gd.Size()
+for it.Next() {
+	fmt.Printf("%c", it.V())
+	if it.P().X == max.X-1 {
+		fmt.Print("\n")
+	}
+}
+// Output:
+// ..........
+// ..........
+// ..........
+// ...####...
+// ...####...
+// ...####...
+// ...####...
+// ..........
+// ..........
+// ..........
 ```
 
 See the documentation for more examples.
