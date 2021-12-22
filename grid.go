@@ -1,4 +1,4 @@
-// package grid provides a generic two-dimensional matrix slice type.
+// Package grid provides a generic two-dimensional matrix slice type.
 //
 // The package provides utilities for iterating such grids, as well as
 // manipulating positions and ranges.
