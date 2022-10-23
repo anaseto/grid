@@ -377,10 +377,10 @@ func (gd Grid[T]) Resize(w, h int) Grid[T] {
 	}
 	gd.rg.Max = gd.rg.Min.Shift(w, h)
 	uh := 0
-	if len(gd.ug.Cells) > 0 && gd.ug.Width > 0 {
-		uh = len(gd.ug.Cells) / gd.ug.Width
-	}
 	nw := gd.ug.Width
+	if nw > 0 {
+		uh = len(gd.ug.Cells) / nw
+	}
 	if w+gd.rg.Min.X > gd.ug.Width {
 		nw = w + gd.rg.Min.X
 	}
@@ -641,10 +641,10 @@ type GridIterator[T any] struct {
 // be convenient when more flexibility than the provided by the other iteration
 // functions is needed. It is used as follows:
 //
-// 	it := gd.Iterator()
-// 	for it.Next() {
-// 		// call it.P() or it.Cell() or it.SetCell() as appropriate
-// 	}
+//	it := gd.Iterator()
+//	for it.Next() {
+//		// call it.P() or it.Cell() or it.SetCell() as appropriate
+//	}
 func (gd Grid[T]) Iterator() GridIterator[T] {
 	if gd.ug == nil {
 		return GridIterator[T]{}
