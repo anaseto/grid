@@ -1,3 +1,5 @@
+**Migrated to https://codeberg.org/anaseto/grid because of 2FA requirement**
+
 # Grid
 
 [![pkg.go.dev](https://pkg.go.dev/badge/github.com/anaseto/grid.svg)](https://pkg.go.dev/github.com/anaseto/grid)
